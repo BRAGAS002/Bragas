@@ -227,7 +227,10 @@ window.addEventListener('scroll', fadeInSkills);
 window.addEventListener('load', fadeInSkills);
 document.querySelector('form').addEventListener('submit', function(event) {
             event.preventDefault();
-            
+
+    submitButton.disabled = true;
+    submitButton.innerHTML = '<div class="spinner"></div> Sending...';
+
             const form = event.target;
             const formData = new FormData(form);
             
@@ -274,5 +277,10 @@ document.querySelector('form').addEventListener('submit', function(event) {
             .catch(error => {
                 console.error('Error:', error);
                 alert('Failed to send message. Please try again.');
-            });
-        });
+            })
+            .finally(() => {
+                // Restore button text and enable
+                submitButton.disabled = false;
+                submitButton.innerHTML = originalText;
+            });      
+          });

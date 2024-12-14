@@ -760,3 +760,25 @@
   .dark-mode .button:hover .hover-text {
     filter: drop-shadow(0 0 23px #ff7b00)
   }
+
+  .spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease infinite;
+    margin-right: 5px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#submitButton:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+}
